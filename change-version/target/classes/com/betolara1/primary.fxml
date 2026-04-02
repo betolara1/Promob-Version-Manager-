@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betolara1.FileController">
+   <children>
+      <!-- Header -->
+      <HBox alignment="CENTER_LEFT" spacing="20.0">
+         <children>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Trocar Versão Promob" styleClass="title-label" />
+                  <Label text="Utilitário para migração de pastas 'System'" styleClass="text-muted" />
+               </children>
+            </VBox>
+            <Button onAction="#handleToggleTheme" styleClass="theme-toggle, button-outlined">
+               <graphic>
+                  <FontIcon iconLiteral="mdi2b-brightness-6" iconSize="20" />
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Alternar Tema (Claro/Escuro)" />
+               </tooltip>
+            </Button>
+         </children>
+      </HBox>
+
+      <Separator />
+
+      <!-- Step 1: Source Root -->
+      <VBox spacing="10.0" styleClass="card">
+         <children>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <FontIcon iconLiteral="mdi2f-folder-multiple" iconSize="24" styleClass="accent-icon" />
+                  <Label text="1. Pasta das Versões (Raiz)" styleClass="step-label" />
+               </children>
+            </HBox>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <Button text="Selecionar..." onAction="#handleSelectSourceRoot" styleClass="button-outlined">
+                     <graphic>
+                        <FontIcon iconLiteral="mdi2f-folder-open" />
+                     </graphic>
+                  </Button>
+                  <Label fx:id="lblSourceRoot" text="Nenhuma pasta selecionada" styleClass="path-label" wrapText="true" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+
+      <!-- Step 2: Select Version -->
+      <VBox spacing="10.0" styleClass="card">
+         <children>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <FontIcon iconLiteral="mdi2t-tag-outline" iconSize="24" styleClass="accent-icon" />
+                  <Label text="2. Selecionar Versão" styleClass="step-label" />
+               </children>
+            </HBox>
+            <ComboBox fx:id="cbVersions" maxWidth="Infinity" promptText="Escolha a versão para copiar..." />
+         </children>
+      </VBox>
+
+      <!-- Step 3: Destination -->
+      <VBox spacing="10.0" styleClass="card">
+         <children>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <FontIcon iconLiteral="mdi2f-folder-download" iconSize="24" styleClass="accent-icon" />
+                  <Label text="3. Pasta de Destino (Instalação)" styleClass="step-label" />
+               </children>
+            </HBox>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <Button text="Selecionar..." onAction="#handleSelectDestination" styleClass="button-outlined">
+                     <graphic>
+                        <FontIcon iconLiteral="mdi2f-folder-open" />
+                     </graphic>
+                  </Button>
+                  <Label fx:id="lblDestination" text="Nenhuma pasta selecionada" styleClass="path-label" wrapText="true" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+
+      <Region VBox.vgrow="ALWAYS" />
+
+      <!-- Action Section -->
+      <VBox spacing="15.0" alignment="CENTER">
+         <children>
+            <ProgressBar fx:id="progressBar" maxWidth="Infinity" progress="0.0" prefHeight="10.0" />
+            <Label fx:id="lblStatus" text="Aguardando início..." styleClass="text-muted" />
+            
+            <Button fx:id="btnCopy" text="COPIAR VERSÃO AGORA" onAction="#handleCopyVersion" 
+                    styleClass="accent, copy-button, large">
+               <graphic>
+                  <FontIcon iconLiteral="mdi2c-content-copy" styleClass="white-icon" />
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,49 @@
+.root {
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.card {
+    -fx-background-color: -color-bg-default;
+    -fx-border-color: -color-border-muted;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 0);
+}
+
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-fg-default;
+}
+
+.step-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-accent-fg;
+}
+
+.path-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: -color-fg-muted;
+    -fx-padding: 5 0;
+}
+
+.copy-button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 30;
+}
+
+.theme-toggle {
+    -fx-background-radius: 20;
+}
+
+.accent-icon {
+    -fx-icon-color: -color-accent-fg;
+}
+
+.white-icon {
+    -fx-icon-color: white;
+}
