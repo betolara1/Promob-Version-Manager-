@@ -121,10 +121,10 @@ public class FileController implements Initializable {
             protected Void call() throws Exception {
                 Path sourceSystem = sourceRoot.toPath().resolve(selectedVersion).resolve("System");
                 Path destSystem = destinationRoot.toPath().resolve("System");
-                Path structuresPath = destSystem.resolve("structures");
+                Path structuresPath = findStructuresPath(destSystem);
 
-                // 1. Excluir pasta structures se existir
-                updateMessage("Excluindo pasta structures...");
+                // 1. Excluir pasta Structures se existir
+                updateMessage("Limpando pasta Structures...");
                 if (Files.exists(structuresPath)) {
                     deleteDirectoryRecursively(structuresPath);
                 }
@@ -251,5 +251,19 @@ public class FileController implements Initializable {
         dialogPane.getStylesheets().add(App.class.getResource("style.css").toExternalForm());
         
         alert.showAndWait();
+    }
+
+    private Path findStructuresPath(Path destSystem) throws IOException {
+        if (!Files.exists(destSystem)) {
+            return destSystem.resolve("Structures");
+        }
+        
+        try (java.util.stream.Stream<Path> stream = Files.list(destSystem)) {
+            return stream
+                .filter(Files::isDirectory)
+                .filter(p -> p.getFileName().toString().equalsIgnoreCase("Structures"))
+                .findFirst()
+                .orElse(destSystem.resolve("Structures"));
+        }
     }
 }
