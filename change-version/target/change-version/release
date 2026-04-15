@@ -1,0 +1,2 @@
+JAVA_VERSION="21.0.10"
+MODULES="java.base java.datatransfer java.xml java.prefs java.desktop javafx.base jdk.unsupported javafx.graphics javafx.controls atlantafx.base java.scripting javafx.fxml java.logging org.kordamp.ikonli.core org.kordamp.ikonli.javafx org.kordamp.ikonli.materialdesign2 com.betolara1"

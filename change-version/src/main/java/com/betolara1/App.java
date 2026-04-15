@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import atlantafx.base.theme.PrimerDark;
 import atlantafx.base.theme.PrimerLight;
@@ -32,6 +33,8 @@ public class App extends Application {
         stage.setScene(scene);
         stage.setResizable(true); // Permitir redimensionar para melhor UX
         stage.show();
+
+        stage.getIcons().add(new Image(App.class.getResourceAsStream("icons/icon.png")));
     }
 
     public static void toggleTheme() {

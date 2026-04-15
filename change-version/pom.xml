@@ -59,15 +59,27 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>com.betolara1/com.betolara1.App</mainClass>
-                            <launcher>launcher</launcher>
+                            <launcher>PromobVersionManager</launcher>
                             <jlinkZipName>change-version</jlinkZipName>
                             <jlinkImageName>change-version</jlinkImageName>
-                            <noManPages>true</noManPages>
-                            <stripDebug>true</stripDebug>
-                            <noHeaderFiles>true</noHeaderFiles>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <name>PromobVersionManager</name>
+                    <appVersion>1.0.0</appVersion>
+                    <vendor>betolara1</vendor>
+                    <destination>target/dist</destination>
+                    <module>com.betolara1/com.betolara1.App</module>
+                    <runtimeImage>target/change-version</runtimeImage>
+                    <icon>src/main/resources/com/betolara1/icons/icon.ico</icon>
+                    <type>APP_IMAGE</type>
+                </configuration>
             </plugin>
         </plugins>
     </build>
